@@ -21,12 +21,12 @@ export default function LoginForm() {
       <TextInput 
       style={styles.input}
       placeholder= "Correo electronico"
-      placeholderTextColor="#969696" />
+      placeholderTextColor="#AEFEFF" />
 
      <TextInput 
       style={styles.input}
       placeholder= "Contraseña"
-      placeholderTextColor="#969696"
+      placeholderTextColor="#AEFEFF"
       secureTextEntry={"true"}  />
 
       <TouchableOpacity onPress={login} style={styles.btn}>
@@ -46,12 +46,12 @@ const styles = StyleSheet.create({
     olor:"#fff",
     width: '80%',
     marginBottom: 25,
-    backgroundColor: '#35858B',
+    backgroundColor: '#4FBDBA',
     paddingHorizontal: 20,
     borderRadius: 50,
     fontSize: 18,
     borderWidth: 1,
-    borderColor: '#35858B',
+    borderColor: '#4FBDBA',
   },
   xdxd:{
     flex: 1,
