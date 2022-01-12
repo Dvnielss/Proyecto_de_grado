@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
   },
   input: {
     height: 50,
-    olor: "#fff",
+    color: "#fff",
     width: "80%",
     marginBottom: 25,
     backgroundColor: "#4FBDBA",
