@@ -9,7 +9,6 @@ import ListNotas from "./src/components/ListNotas";
 export default function App() {
   const [user, setUser] = useState(undefined);
   
-
   useEffect(() => {
     firebase.auth().onAuthStateChanged((response) => {
       setUser(response);
@@ -17,7 +16,6 @@ export default function App() {
   }, []);
 
   if (user === undefined) return null;
-
 
   return (
     
@@ -32,19 +30,6 @@ export default function App() {
   );
 }
 
-// function Logout(){
-//   const logout = () => {
-//     firebase.auth().signOut();
-//   };
-//   return(
-//     <View>
-//       <Text>
-//         Estas Logueado
-//       </Text>
-//       <Button title="Cerrar Sesion" onPress={logout}/>
-//     </View>
-//   )
-// }
 
 const styles = StyleSheet.create({
   background: {

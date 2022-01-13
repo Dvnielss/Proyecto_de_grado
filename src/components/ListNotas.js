@@ -27,17 +27,16 @@ export default function ListNotas(props){
         <View style={styles.container}>
             {showList ? (
                <ScrollView style={styles.scrollView}>
-                   <Text>{notas.nombre}</Text>
-                   <Text>{notas.apellido}</Text>
-                   <Text>{notas.cedula}</Text>
-                   <Text> </Text>
-                   
-                   <Text>Materias Inscritas</Text>
-                   {map(notas.materiasInscritas,(nota,index) => (
-                    <Notas key={index} nota={nota}/>
-                   ))}
+                   <View>
+                        <Text>Materias Inscritas</Text>
+                        <Text>{notas.nombre}</Text>
+                        <Text>{notas.apellido}</Text>
+                        <Text>{notas.cedula}</Text>
+                   </View>
                   
-                   
+                   {map(notas.materiasInscritas,(nota,index) => (
+                    <Notas key={index} nota={nota} notas={notas}/>
+                   ))}  
                </ScrollView>
             ):(
  
