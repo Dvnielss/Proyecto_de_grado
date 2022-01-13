@@ -1,15 +1,16 @@
 import React from 'react';
 import {View, StyleSheet,Text} from 'react-native';
 
-export default function Report(props) {
-    const{user}=props;
 
-   // console.log(user.uid)
-    
+export default function Notas(props){
+    const {nota}=props;
+  
+ 
     return (
         <View>
-            <Text>Report</Text>
-            
+            <Text>{nota.nombre} </Text>
+            <Text>{nota.calificacion}</Text>
+
         </View>
     );
 }
