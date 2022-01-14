@@ -1,5 +1,6 @@
 import React from 'react';
-import {StyleSheet,TextInput,Button,View} from 'react-native';
+import {StyleSheet,TextInput,Button,View, Textarea} from 'react-native';
+import { TextArea, Center, NativeBaseProvider } from "native-base"
 
 
 export default function Report(props) {
@@ -17,13 +18,24 @@ export default function Report(props) {
             placeholderTextColor="#AEFEFF"
             />
     
-            <TextInput
+            {/* <TextInput
             style={styles.inputt}
             placeholder="Descripcion"
             placeholderTextColor="#AEFEFF"
             multiline={true}
             textAlignVertical="top"
+            /> */}
+            <TextArea
+            h={20}
+            placeholder="Descripcion"
+            style={styles.inputt}
+            
             />
+
+            
+            
+
+          
             <Button title="enviar reporte"/>
        
         </View>

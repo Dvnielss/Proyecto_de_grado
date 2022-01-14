@@ -2,15 +2,15 @@ import React from 'react';
 import {View, StyleSheet,Text} from 'react-native';
 
 
+
 export default function Notas(props){
     const {nota}=props;
-  
- 
     return (
-        <View style={styles.card}>
+        <View  style={styles.card} >
             
             <Text style={styles.userName}>{nota.nombre} </Text>
             <Text style={[styles.userName, styles.textCurrent]}>{nota.calificacion}</Text>
+
 
         </View>
     );
