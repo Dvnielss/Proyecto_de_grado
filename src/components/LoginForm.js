@@ -52,7 +52,7 @@ export default function LoginForm(props) {
         style={[styles.input, formError.password && styles.error]}
         placeholder="Contraseña"
         placeholderTextColor="#AEFEFF"
-        secureTextEntry={"true"}
+        secureTextEntry={true}
         onChange={(e) => onChange(e, "password")}
       />
 
