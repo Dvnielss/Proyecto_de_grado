@@ -9,6 +9,7 @@ export default function Auth() {
     return(
         <View style={styles.view}>
             <Image style={styles.logo} source={require("../assets/logo.png")}/>
+            <Text style={styles.login}>LOGIN</Text>
             <LoginForm/> 
         </View>
     );
@@ -23,8 +24,16 @@ const styles = StyleSheet.create({
     logo:{
         width:"80%",
         height: 120,
-        marginTop: 50,
-        marginBottom:50
+        marginTop: 100,
+        marginBottom:100,
+        
 
-    }
+    },
+    login: {
+        color: "#fff",
+        marginBottom: 50,
+        fontSize: 18
+
+        
+    },
 })

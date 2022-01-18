@@ -1,27 +1,27 @@
 import React, { useState } from "react";
 import {
-  View,
   StyleSheet,
   Text,
   TouchableOpacity,
   TextInput,
+  Alert,
 } from "react-native";
 import { validateEmail } from "../utils/validations";
 import firebase from "../utils/firebase";
 
-export default function LoginForm(props) {
+export default function LoginForm() {
   const [formData, setFormData] = useState(defaultValue());
   const [formError, setFormError] = useState({});
-
+  
   const login = () => {
     let errors = {};
     if (!formData.email || !formData.password) {
       if (!formData.email) errors.email = true;
       if (!formData.password) errors.password = true;
-      console.log("ERROR 1");
+      createThreeButtonAlert();
     } else if (!validateEmail(formData.email)) {
       errors.email = true;
-      console.log("ERROR 2");
+      createTwoButtonAlert();
     } else {
       firebase
         .auth()
@@ -35,6 +35,7 @@ export default function LoginForm(props) {
     }
     setFormError(errors);
   };
+ 
   const onChange = (e, type) => {
     setFormData({ ...formData, [type]: e.nativeEvent.text });
   };
@@ -62,6 +63,26 @@ export default function LoginForm(props) {
     </>
   );
 }
+
+const createTwoButtonAlert = () =>
+  Alert.alert("Error", "El correo electronico ingresado es invalido!", [
+    {
+      text: "Cancel",
+      onPress: () => console.log("Cancel Pressed"),
+      style: "cancel",
+    },
+    { text: "OK", onPress: () => console.log("OK Pressed") },
+  ]);
+
+const createThreeButtonAlert = () =>
+  Alert.alert("Error", "Por favor evite dejar campos vacios!!", [
+    {
+      text: "Cancel",
+      onPress: () => console.log("Cancel Pressed"),
+      style: "cancel",
+    },
+    { text: "OK", onPress: () => console.log("OK Pressed") },
+  ]);
 function defaultValue() {
   return {
     email: "",
@@ -84,11 +105,6 @@ const styles = StyleSheet.create({
     fontSize: 18,
     borderWidth: 1,
     borderColor: "#4FBDBA",
-  },
-  xdxd: {
-    flex: 1,
-    justifyContent: "flex-end",
-    marginBottom: 10,
   },
   error: {
     borderColor: "#940c0c",
