@@ -6,6 +6,7 @@ import {
   ScrollView,
   Button,
   Header,
+  ImageBackground,
 } from "react-native";
 // import {Header,Body,Title} from "native-base"
 import { map } from "lodash";
@@ -46,11 +47,14 @@ export default function ListNotas(props) {
       {showList ? (
         <>
           <View style={styles.viewHeader}>
-            <Text>{notas.nombre} {notas.apellido}</Text>
-            <Text>{notas.cedula}</Text>
+            <Text style={styles.textData}>
+              {notas.nombre} {notas.apellido}
+            </Text>
+            <Text style={styles.textData}>{notas.cedula}</Text>
           </View>
-          <Text style={styles.text}>Materias Inscritas</Text>
+
           <ScrollView style={styles.scrollView}>
+            <Text style={styles.title}>Materias Inscritas</Text>
             {map(notas.materiasInscritas, (nota, index) => (
               <Notas
                 key={index}
@@ -104,10 +108,27 @@ const styles = StyleSheet.create({
     justifyContent: "space-around",
     alignItems: "center",
     paddingHorizontal: 30,
-    marginBottom: 20,
+    backgroundColor: "#072227",
+    borderBottomLeftRadius: 15,
+    borderBottomRightRadius: 15,
   },
-  text:{
+  text: {
     fontSize: 18,
-    color: "#fff"
-  }
+    color: "#fff",
+  },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+  },
+  title: {
+    fontSize: 24,
+    color: "#222",
+    fontWeight: "bold",
+    textAlign:"center"
+  },
+  textData: {
+    fontSize: 20,
+    color: "#fff",
+    fontWeight: "bold",
+  },
 });

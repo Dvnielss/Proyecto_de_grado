@@ -12,7 +12,7 @@ import firebase from "../utils/firebase";
 export default function LoginForm() {
   const [formData, setFormData] = useState(defaultValue());
   const [formError, setFormError] = useState({});
-  
+
   const login = () => {
     let errors = {};
     if (!formData.email || !formData.password) {
@@ -31,11 +31,12 @@ export default function LoginForm() {
             email: true,
             password: true,
           });
+          createOneButtonAlert();
         });
     }
     setFormError(errors);
   };
- 
+
   const onChange = (e, type) => {
     setFormData({ ...formData, [type]: e.nativeEvent.text });
   };
@@ -58,16 +59,16 @@ export default function LoginForm() {
       />
 
       <TouchableOpacity onPress={login} style={styles.btn}>
-        <Text>Iniciar Sesión</Text>
+        <Text style={styles.text}>Iniciar Sesión</Text>
       </TouchableOpacity>
     </>
   );
 }
 
 const createTwoButtonAlert = () =>
-  Alert.alert("Error", "El correo electronico ingresado es invalido!", [
+  Alert.alert("Error de Correo!", "El correo electronico ingresado es invalido", [
     {
-      text: "Cancel",
+      text: "Cancelar",
       onPress: () => console.log("Cancel Pressed"),
       style: "cancel",
     },
@@ -75,9 +76,18 @@ const createTwoButtonAlert = () =>
   ]);
 
 const createThreeButtonAlert = () =>
-  Alert.alert("Error", "Por favor evite dejar campos vacios!!", [
+  Alert.alert("Error de Entrada!", "Por favor evite dejar campos vacios", [
     {
-      text: "Cancel",
+      text: "Cancelar",
+      onPress: () => console.log("Cancel Pressed"),
+      style: "cancel",
+    },
+    { text: "OK", onPress: () => console.log("OK Pressed") },
+  ]);
+const createOneButtonAlert = () =>
+  Alert.alert("Error de credeciales!", "correo o contaseña incorrecta", [
+    {
+      text: "Cancelar",
       onPress: () => console.log("Cancel Pressed"),
       style: "cancel",
     },
@@ -90,16 +100,12 @@ function defaultValue() {
   };
 }
 const styles = StyleSheet.create({
-  btn: {
-    color: "#fff",
-    fontSize: 18,
-  },
   input: {
     height: 50,
     color: "#fff",
     width: "80%",
     marginBottom: 25,
-    backgroundColor: "#4FBDBA",
+    backgroundColor: "#072227",
     paddingHorizontal: 20,
     borderRadius: 50,
     fontSize: 18,
@@ -108,5 +114,15 @@ const styles = StyleSheet.create({
   },
   error: {
     borderColor: "#940c0c",
+  },
+  btn: {
+    backgroundColor: "#072227",
+    borderRadius: 50,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    fontSize: 18,
+  },
+  text: {
+    color: "#AEFEFF",
   },
 });

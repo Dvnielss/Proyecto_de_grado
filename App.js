@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   StyleSheet,
   StatusBar,
+  ImageBackground,
 } from "react-native";
 import Auth from "./src/components/Auth";
 import firebase from "./src/utils/firebase";
@@ -88,11 +89,17 @@ export default function App() {
     <>
       <StatusBar barStyle="ligth-content" />
       <SafeAreaView style={styles.background}>
-        {user ? (
-          <ListNotas user={user} expoPushToken={expoPushToken} />
-        ) : (
-          <Auth />
-        )}
+        <ImageBackground
+          source={require("./src/assets/screen.png")}
+          resizeMode="cover"
+          style={styles.image}
+        >
+          {user ? (
+            <ListNotas user={user} expoPushToken={expoPushToken} />
+          ) : (
+            <Auth />
+          )}
+        </ImageBackground>
       </SafeAreaView>
     </>
   );
@@ -100,7 +107,11 @@ export default function App() {
 
 const styles = StyleSheet.create({
   background: {
-    backgroundColor: "#35858B",
-    height: "100%",
+    flex: 1,
+  },
+
+  image: {
+    flex: 1,
+    justifyContent: "center",
   },
 });

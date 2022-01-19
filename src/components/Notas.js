@@ -5,15 +5,30 @@ export default function Notas(props) {
   const { nota } = props;
   return (
     <View style={styles.card}>
-      <Text style={styles.userName}>{nota.nombre} </Text>
-      <Text style={[styles.userName, styles.textCurrent]}>
-        {nota.calificacion}
-      </Text>
+      <View style={styles.col}>
+        <Text style={styles.userName}>{nota.nombre} </Text>
+
+      </View>
+
+      <View style={styles.col}>
+        <Text style={[styles.userName, styles.textCurrent]}>
+          {nota.calificacion}
+        </Text>
+
+      </View>
+
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+  col: {
+    width: "50%",
+    alignItems: "center",
+
+  },
+
+
   card: {
     justifyContent: "space-between",
     height: 60,
@@ -22,7 +37,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     margin: 10,
     borderRadius: 15,
-    backgroundColor: "#1ea1f2",
+    backgroundColor: "#072227",
+    paddingLeft: 5,
+    paddingRight: 5
   },
 
   userName: {

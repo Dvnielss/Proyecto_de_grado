@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, TextInput, Button, View, Linking } from "react-native";
+import { StyleSheet, TextInput, TouchableOpacity , Linking,Text} from "react-native";
 
 export default function Report(props) {
   const { user, notas } = props;
@@ -14,6 +14,7 @@ export default function Report(props) {
       `mailto:danielsslenderman1@gmail.com?subject=Reporte_De_Calificacion[${notas.nombre} ${notas.apellido}][${notas.cedula}]
       &body=
       <b>Nombre:</b> ${notas.nombre} ${notas.apellido}<br>
+      <b>ID:</b> ${user.uid}<br>
       <b>Materia:</b> ${formData.materia}<br><br>
       <b>Descripcion:</b> ${formData.descripcion} 
       `
@@ -35,12 +36,14 @@ export default function Report(props) {
         multiline
         numberOfLines={10}
         style={styles.inputt}
-        placeholder="Descripcion(Opcional)"
+        placeholder="Descripcion"
         placeholderTextColor="#AEFEFF"
         onChange={(e) => onChange(e, "descripcion")}
       />
-
-      <Button title="enviar reporte" onPress={handleEmailPres} />
+     
+      <TouchableOpacity onPress={handleEmailPres} style={styles.btn}>
+        <Text style={styles.text}>Enviar</Text>
+      </TouchableOpacity>
     </>
   );
 }
@@ -57,24 +60,37 @@ const styles = StyleSheet.create({
     color: "#fff",
     width: "80%",
     marginBottom: 25,
-    backgroundColor: "#4FBDBA",
+    backgroundColor: "#072227",
     paddingHorizontal: 20,
-    borderRadius: 50,
+    borderRadius: 15,
     fontSize: 18,
     borderWidth: 1,
-    borderColor: "#4FBDBA",
+    borderColor: "#35858B",
     marginTop: 100,
+    borderWidth: 6
   },
   inputt: {
     color: "#fff",
     width: "80%",
     marginBottom: 25,
-    backgroundColor: "#4FBDBA",
+    backgroundColor: "#072227",
     paddingHorizontal: 20,
     borderRadius: 25,
     fontSize: 18,
     borderWidth: 1,
-    borderColor: "#4FBDBA",
+    borderColor: "#35858B",
     textAlignVertical: "top",
+    borderWidth: 4
   },
+  btn: {
+    backgroundColor: "#072227",
+    borderRadius: 50,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
+    fontSize: 18, 
+  },
+  text:{
+    color: "#AEFEFF"
+  }
+
 });

@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     bottom: 0,
     flexDirection: "row",
     width: "100%",
-    height: 50,
+    height: 40,
     justifyContent: "space-between",
     alignItems: "center",
     paddingHorizontal: 30,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   viewReport: {
-    backgroundColor: "#30475E",
+    backgroundColor: "#598392",
     borderRadius: 50,
     paddingVertical: 10,
     paddingHorizontal: 30,
