@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  ScrollView,
-  Button,
-  Header,
-  ImageBackground,
-} from "react-native";
-// import {Header,Body,Title} from "native-base"
+import { View, StyleSheet, Text, ScrollView } from "react-native";
+
 import { map } from "lodash";
 import ActionBar from "./ActionBar";
 import Report from "./Report";
@@ -124,7 +116,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#222",
     fontWeight: "bold",
-    textAlign:"center"
+    textAlign: "center",
   },
   textData: {
     fontSize: 20,

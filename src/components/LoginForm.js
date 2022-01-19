@@ -66,14 +66,18 @@ export default function LoginForm() {
 }
 
 const createTwoButtonAlert = () =>
-  Alert.alert("Error de Correo!", "El correo electronico ingresado es invalido", [
-    {
-      text: "Cancelar",
-      onPress: () => console.log("Cancel Pressed"),
-      style: "cancel",
-    },
-    { text: "OK", onPress: () => console.log("OK Pressed") },
-  ]);
+  Alert.alert(
+    "Error de Correo!",
+    "El correo electronico ingresado es invalido",
+    [
+      {
+        text: "Cancelar",
+        onPress: () => console.log("Cancel Pressed"),
+        style: "cancel",
+      },
+      { text: "OK", onPress: () => console.log("OK Pressed") },
+    ]
+  );
 
 const createThreeButtonAlert = () =>
   Alert.alert("Error de Entrada!", "Por favor evite dejar campos vacios", [
@@ -85,7 +89,7 @@ const createThreeButtonAlert = () =>
     { text: "OK", onPress: () => console.log("OK Pressed") },
   ]);
 const createOneButtonAlert = () =>
-  Alert.alert("Error de credeciales!", "correo o contaseña incorrecta", [
+  Alert.alert("Error de credeciales!", "Correo o contaseña incorrecta", [
     {
       text: "Cancelar",
       onPress: () => console.log("Cancel Pressed"),
