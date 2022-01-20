@@ -14,12 +14,17 @@ export default function ListNotas(props) {
   const [notas, setNotas] = useState([]);
   const [contador, setContador] = useState(0);
 
+  
+
+
   useEffect(() => {
     const list = firebase.database().ref(`users/${user.uid}`);
     list.on("value", (snapshot) => {
       setNotas(snapshot.val());
     });
+   
   }, []);
+
 
   useEffect(() => {
     if (notas.length === 0) {
@@ -58,7 +63,7 @@ export default function ListNotas(props) {
           </ScrollView>
         </>
       ) : (
-        <Report user={user} notas={notas} />
+        <Report user={user} notas={notas}  />
       )}
       <ActionBar showList={showList} setShowList={setShowList} />
     </View>

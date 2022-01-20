@@ -3,6 +3,7 @@ import { View, StyleSheet, Text } from "react-native";
 
 export default function Notas(props) {
   const { nota } = props;
+ 
   return (
     <View style={styles.card}>
       <View style={styles.col}>
