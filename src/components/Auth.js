@@ -22,8 +22,8 @@ const styles = StyleSheet.create({
   logo: {
     width: "80%",
     height: 120,
-    marginTop: 100,
     marginBottom: 100,
+    marginTop: 100,
   },
   login: {
     color: "#fff",

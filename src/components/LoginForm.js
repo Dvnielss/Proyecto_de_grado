@@ -5,6 +5,10 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
+  KeyboardAvoidingView,
+  TouchableWithoutFeedback,
+  Keyboard,
+  Platform,
 } from "react-native";
 import { validateEmail } from "../utils/validations";
 import firebase from "../utils/firebase";
@@ -57,13 +61,15 @@ export default function LoginForm() {
         secureTextEntry={true}
         onChange={(e) => onChange(e, "password")}
       />
-
       <TouchableOpacity onPress={login} style={styles.btn}>
         <Text style={styles.text}>Iniciar Sesión</Text>
       </TouchableOpacity>
     </>
   );
 }
+
+
+
 
 const createTwoButtonAlert = () =>
   Alert.alert(
@@ -105,10 +111,11 @@ function defaultValue() {
 }
 const styles = StyleSheet.create({
   input: {
+  
     height: 50,
     color: "#fff",
     width: "80%",
-    marginBottom: 25,
+    marginBottom: 15,
     backgroundColor: "#072227",
     paddingHorizontal: 20,
     borderRadius: 50,
