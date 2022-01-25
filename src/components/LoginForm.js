@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { validateEmail } from "../utils/validations";
 import firebase from "../utils/firebase";
+import { Button } from "native-base";
 
 export default function LoginForm() {
   const [formData, setFormData] = useState(defaultValue());
@@ -64,6 +65,8 @@ export default function LoginForm() {
       <TouchableOpacity onPress={login} style={styles.btn}>
         <Text style={styles.text}>Iniciar Sesión</Text>
       </TouchableOpacity>
+
+  
     </>
   );
 }

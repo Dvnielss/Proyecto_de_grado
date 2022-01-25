@@ -1,11 +1,12 @@
 import Constants from "expo-constants";
 import React, { useState, useEffect, useRef } from "react";
 import * as Notifications from "expo-notifications";
+
 import {
   SafeAreaView,
   StyleSheet,
   StatusBar,
-  ImageBackground,KeyboardAvoidingView
+  ImageBackground,Platform
 } from "react-native";
 import Auth from "./src/components/Auth";
 import firebase from "./src/utils/firebase";
@@ -51,7 +52,44 @@ export default function App() {
     };
   }, []);
 
+  
+
   if (user === undefined) return null;
+ 
+// async function registerForPushNotificationsAsync() {
+//   let token;
+//   if (Constants.isDevice) {
+//     const { status: existingStatus } = await Permissions.getAsync(
+//       Permission.NOTIFICATIONS
+//     );
+//     let finalStatus = existingStatus;
+//     if (existingStatus !== "granted") {
+//       const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+//       finalStatus = status;
+//     }
+//     if (finalStatus !== "granted") {
+//       alert("Failed to get push token for push notification!");
+//       return;
+//     }
+//     token = (await Notifications.getExpoPushTokenAsync()).data;
+//     console.log(token);
+//   } else {
+//     alert("Must use physical device for Push Notifications");
+//   }
+
+//   if (Platform.OS === "android") {
+//     Notifications.setNotificationChannelAsync("default", {
+//       name: "default",
+//       importance: Notifications.AndroidImportance.MAX,
+//       vibrationPattern: [0, 250, 250, 250],
+//       lightColor: "#FF231F7C",
+//     });
+//   }
+
+//   console.log(token);
+//   alert(token); //mostramos el token
+//   return token;
+// }
 
   async function registerForPushNotificationsAsync() {
     let token;

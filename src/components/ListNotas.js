@@ -27,6 +27,7 @@ export default function ListNotas(props) {
 
 
   useEffect(() => {
+
     if (notas.length === 0) {
       console.log("EmpName no está definido");
     } else {

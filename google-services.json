@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "9810936665",
+    "firebase_url": "https://proyecto-grado-a870d-default-rtdb.firebaseio.com",
+    "project_id": "proyecto-grado-a870d",
+    "storage_bucket": "proyecto-grado-a870d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:9810936665:android:0a30164b38a4856a4bc248",
+        "android_client_info": {
+          "package_name": "com.dvniels.proyectodegradounerg"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "9810936665-65fbr3ck7m7pm9rkp5nl5ku4o1073fpl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCzshbourZ7BWFzGQ37ASFPVKdyoN0Sm3s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "9810936665-65fbr3ck7m7pm9rkp5nl5ku4o1073fpl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
