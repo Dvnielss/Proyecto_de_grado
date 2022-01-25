@@ -73,7 +73,6 @@ export default function LoginForm() {
 
 
 
-
 const createTwoButtonAlert = () =>
   Alert.alert(
     "Error de Correo!",

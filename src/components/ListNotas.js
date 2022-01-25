@@ -14,9 +14,6 @@ export default function ListNotas(props) {
   const [notas, setNotas] = useState([]);
   const [contador, setContador] = useState(0);
 
-  
-
-
   useEffect(() => {
     const list = firebase.database().ref(`users/${user.uid}`);
     list.on("value", (snapshot) => {
@@ -24,7 +21,6 @@ export default function ListNotas(props) {
     });
    
   }, []);
-
 
   useEffect(() => {
 
