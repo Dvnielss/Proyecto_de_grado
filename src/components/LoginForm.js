@@ -5,14 +5,10 @@ import {
   TouchableOpacity,
   TextInput,
   Alert,
-  KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
-  Platform,
 } from "react-native";
 import { validateEmail } from "../utils/validations";
 import firebase from "../utils/firebase";
-import { Button } from "native-base";
+
 
 export default function LoginForm() {
   const [formData, setFormData] = useState(defaultValue());
@@ -65,19 +61,13 @@ export default function LoginForm() {
       <TouchableOpacity onPress={login} style={styles.btn}>
         <Text style={styles.text}>Iniciar Sesión</Text>
       </TouchableOpacity>
-
-  
     </>
   );
 }
 
-
-
 const createTwoButtonAlert = () =>
   Alert.alert(
-    "Error de Correo!",
-    "El correo electronico ingresado es invalido",
-    [
+    "Error de Correo!","El correo electronico ingresado es invalido",[
       {
         text: "Cancelar",
         onPress: () => console.log("Cancel Pressed"),
@@ -86,7 +76,6 @@ const createTwoButtonAlert = () =>
       { text: "OK", onPress: () => console.log("OK Pressed") },
     ]
   );
-
 const createThreeButtonAlert = () =>
   Alert.alert("Error de Entrada!", "Por favor evite dejar campos vacios", [
     {
@@ -113,7 +102,6 @@ function defaultValue() {
 }
 const styles = StyleSheet.create({
   input: {
-  
     height: 50,
     color: "#fff",
     width: "80%",
