@@ -1,6 +1,7 @@
 import Constants from "expo-constants";
 import React, { useState, useEffect, useRef } from "react";
 import * as Notifications from "expo-notifications";
+import * as Permissions from 'expo-permissions';
 
 import {
   SafeAreaView,
@@ -95,10 +96,10 @@ export default function App() {
     let token;
     if (Constants.isDevice) {
       const { status: existingStatus } =
-        await Notifications.getPermissionsAsync();
+        await Permissions.getAsync(Permissions.NOTIFICATIONS);
       let finalStatus = existingStatus;
       if (existingStatus !== "granted") {
-        const { status } = await Notifications.requestPermissionsAsync();
+        const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
         finalStatus = status;
       }
       if (finalStatus !== "granted") {
