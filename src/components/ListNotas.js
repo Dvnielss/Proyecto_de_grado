@@ -1,29 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { View, StyleSheet, Text, ScrollView } from "react-native";
+import {
+  View,
+  StyleSheet,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 
 import { map } from "lodash";
 import ActionBar from "./ActionBar";
-import Report from "./Report";
-import firebase from "../utils/firebase";
-import "firebase/database";
+import Icon from "react-native-vector-icons/FontAwesome";
+
+// import firebase from "../utils/firebase";
+// import "firebase/database";
 import Notas from "./Notas";
+import Report from "./Report";
 
 export default function ListNotas(props) {
-  const { user, expoPushToken } = props;
+  const { user, expoPushToken, notas} = props;
   const [showList, setShowList] = useState(true);
-  const [notas, setNotas] = useState([]);
+  // const [notas, setNotas] = useState([]);
   const [contador, setContador] = useState(0);
+  const { showList1, setShowList1 } = props;
+
+  // useEffect(() => {
+  //   const list = firebase.database().ref(`users/${user.uid}`);
+  //   list.on("value", (snapshot) => {
+  //     setNotas(snapshot.val());
+  //   });
+  // }, []);
 
   useEffect(() => {
-    const list = firebase.database().ref(`users/${user.uid}`);
-    list.on("value", (snapshot) => {
-      setNotas(snapshot.val());
-    });
-   
-  }, []);
-
-  useEffect(() => {
-
     if (notas.length === 0) {
       console.log("EmpName no está definido");
     } else {
@@ -41,6 +48,14 @@ export default function ListNotas(props) {
       {showList ? (
         <>
           <View style={styles.viewHeader}>
+            <View style={{marginLeft: -25}}>
+              <Icon
+                name="arrow-left"
+                size={20}
+                style={{ color: "#fff" }}
+                onPress={() => setShowList1(!showList1)}
+              />
+            </View>
             <Text style={styles.textData}>
               {notas.nombre} {notas.apellido}
             </Text>
@@ -49,6 +64,7 @@ export default function ListNotas(props) {
 
           <ScrollView style={styles.scrollView}>
             <Text style={styles.title}>Materias Inscritas</Text>
+            <Text style={styles.title}>{notas.periodo}</Text>
             {map(notas.materiasInscritas, (nota, index) => (
               <Notas
                 key={index}
@@ -60,9 +76,11 @@ export default function ListNotas(props) {
           </ScrollView>
         </>
       ) : (
-        <Report user={user} notas={notas}  />
+        <Report user={user} notas={notas} />
       )}
       <ActionBar showList={showList} setShowList={setShowList} />
+
+      <TouchableOpacity></TouchableOpacity>
     </View>
   );
 }
@@ -103,8 +121,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     paddingHorizontal: 30,
     backgroundColor: "#072227",
-    borderBottomLeftRadius: 15,
-    borderBottomRightRadius: 15,
+    borderBottomLeftRadius: 25,
+    borderBottomRightRadius: 25,
   },
   text: {
     fontSize: 18,
@@ -124,5 +142,11 @@ const styles = StyleSheet.create({
     fontSize: 20,
     color: "#fff",
     fontWeight: "bold",
+  },
+  viewReport: {
+    backgroundColor: "#598392",
+    borderRadius: 50,
+    paddingVertical: 10,
+    paddingHorizontal: 30,
   },
 });

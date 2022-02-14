@@ -51,6 +51,7 @@ export default function Report(props) {
           selectedValue={selected}
           onValueChange={(itemValue, itemIndex) => setSelected(itemValue)}
           style={{
+            width: 300,
             height: 55,
             color: "#AEFEFF",
             backgroundColor: "#072227",
@@ -79,6 +80,8 @@ export default function Report(props) {
       <TouchableOpacity onPress={handleEmailPres} style={styles.btn}>
         <Text style={styles.text}>Enviar</Text>
       </TouchableOpacity>
+
+      
     </>
   );
 }
@@ -111,7 +114,8 @@ const createTwoButtonAlert = () =>
 const styles = StyleSheet.create({
   input: {
     color: "#fff",
-    width: "80%",
+    // width: "80%",
+    width: 300,
     marginBottom: 10,
     backgroundColor: "#072227",
     paddingHorizontal: 20,
@@ -129,6 +133,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 30,
     fontSize: 18,
     marginBottom: 20,
+    width: 150,
+    alignItems: 'center',
   },
   text: {
     color: "#AEFEFF",
@@ -145,4 +151,8 @@ const styles = StyleSheet.create({
     borderColor: "#35858B",
     overflow: "hidden",
   },
+  image: {
+    flex: 1,
+    justifyContent: "center",
+  }
 });

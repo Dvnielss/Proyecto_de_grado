@@ -13,6 +13,7 @@ import Auth from "./src/components/Auth";
 import firebase from "./src/utils/firebase";
 import "firebase/auth";
 import ListNotas from "./src/components/ListNotas";
+import Home from "./src/components/Home"
 
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
@@ -57,40 +58,6 @@ export default function App() {
 
   if (user === undefined) return null;
  
-// async function registerForPushNotificationsAsync() {
-//   let token;
-//   if (Constants.isDevice) {
-//     const { status: existingStatus } = await Permissions.getAsync(
-//       Permission.NOTIFICATIONS
-//     );
-//     let finalStatus = existingStatus;
-//     if (existingStatus !== "granted") {
-//       const { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
-//       finalStatus = status;
-//     }
-//     if (finalStatus !== "granted") {
-//       alert("Failed to get push token for push notification!");
-//       return;
-//     }
-//     token = (await Notifications.getExpoPushTokenAsync()).data;
-//     console.log(token);
-//   } else {
-//     alert("Must use physical device for Push Notifications");
-//   }
-
-//   if (Platform.OS === "android") {
-//     Notifications.setNotificationChannelAsync("default", {
-//       name: "default",
-//       importance: Notifications.AndroidImportance.MAX,
-//       vibrationPattern: [0, 250, 250, 250],
-//       lightColor: "#FF231F7C",
-//     });
-//   }
-
-//   console.log(token);
-//   alert(token); //mostramos el token
-//   return token;
-// }
 
   async function registerForPushNotificationsAsync() {
     let token;
@@ -134,9 +101,9 @@ export default function App() {
           resizeMode="cover"
           style={styles.image}
         >
-          
-            {user ? (
-              <ListNotas user={user} expoPushToken={expoPushToken} />
+
+            {user ?(
+              <Home user={user} expoPushToken={expoPushToken} />
             ) : (
               <Auth />
             )}
@@ -157,3 +124,4 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
 });
+

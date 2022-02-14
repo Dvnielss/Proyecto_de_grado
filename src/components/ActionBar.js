@@ -12,11 +12,11 @@ export default function ActionBar(props) {
           {showList ? "Reporte" : "Cancelar"}
         </Text>
       </View>
-      <View style={styles.viewClose}>
+      {/* <View style={styles.viewClose}>
         <Text style={styles.text} onPress={() => firebase.auth().signOut()}>
           Cerrar Sesión
         </Text>
-      </View>
+      </View> */}
     </View>
   );
 }
@@ -28,7 +28,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     width: "100%",
     height: 50,
-    justifyContent: "space-between",
+    justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 30,
     marginBottom: 20,
